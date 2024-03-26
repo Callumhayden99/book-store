@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import { FaShoppingCart, FaUser, FaSearch } from "react-icons/fa";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +18,57 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <header className="bg-white shadow-md">
+        <div className="container mx-auto px-4 py-6 flex items-center justify-between">
+          <div className="flex items-center">
+            <Link href="/">
+              <span className="text-xl font-bold text-red-600">BookStore</span>
+            </Link>
+            <nav className="ml-8">
+              <ul className="flex space-x-4">
+                <li>
+                  <Link href="/">
+                    <span className="text-gray-800 hover:text-red-600">
+                      Home
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about">
+                    <span className="text-gray-800 hover:text-red-600">
+                      About
+                    </span>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div className="flex-1 flex justify-center">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search books..."
+                className="w-96 px-4 py-2 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
+              />
+              <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            </div>
+          </div>
+          <div className="flex items-center space-x-4">
+            <Link href="/cart">
+              <span className="text-gray-800 hover:text-red-600 flex items-center">
+                <FaShoppingCart className="mr-1" />
+                Cart
+              </span>
+            </Link>
+            <Link href="/login">
+              <span className="text-gray-800 hover:text-red-600 flex items-center">
+                <FaUser className="mr-1" />
+                Login
+              </span>
+            </Link>
+          </div>
+        </div>
+      </header>
       <body className={inter.className}>{children}</body>
     </html>
   );
