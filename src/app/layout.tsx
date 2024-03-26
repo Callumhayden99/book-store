@@ -11,6 +11,7 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import CategoryNav from "./CatergoryNav";
+import Home from "../components/Home";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -88,6 +89,7 @@ export default function RootLayout({
         <CategoryNav />
       </header>
       <body className={inter.className}>{children}</body>
+      <Home />
       <footer className="bg-white shadow-md mt-8">
         <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
