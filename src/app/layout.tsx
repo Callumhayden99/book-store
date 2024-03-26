@@ -10,6 +10,7 @@ import {
   FaTwitter,
   FaInstagram,
 } from "react-icons/fa";
+import CategoryNav from "./CatergoryNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html lang="en">
       <header className="bg-white shadow-md">
@@ -44,6 +47,13 @@ export default function RootLayout({
                   <Link href="/about">
                     <span className="text-gray-800 hover:text-red-600">
                       About
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/deals">
+                    <span className="text-gray-800 hover:text-red-600">
+                     Deals
                     </span>
                   </Link>
                 </li>
@@ -75,6 +85,7 @@ export default function RootLayout({
             </Link>
           </div>
         </div>
+        <CategoryNav />
       </header>
       <body className={inter.className}>{children}</body>
       <footer className="bg-white shadow-md mt-8">
