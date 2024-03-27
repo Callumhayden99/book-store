@@ -32,7 +32,7 @@ const Home = () => {
         <div className="flex flex-col md:flex-row items-center justify-between bg-white rounded-lg shadow-md p-8 mb-8">
           <div className="md:w-1/2">
             <h1 className="text-4xl font-bold mb-4 text-red-600">
-              Welcome to BookStore
+              Welcome to BookBank
             </h1>
             <p className="text-gray-600 mb-8">
               Discover a world of books at your fingertips.

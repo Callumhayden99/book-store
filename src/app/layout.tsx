@@ -25,66 +25,89 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-
   return (
     <html lang="en">
       <header className="bg-white shadow-md">
-        <div className="container mx-auto px-4 py-6 flex items-center justify-between">
-          <div className="flex items-center">
-            <Link href="/">
-              <span className="text-xl font-bold text-red-600">BookStore</span>
-            </Link>
-            <nav className="ml-8">
-              <ul className="flex space-x-4">
-                <li>
-                  <Link href="/">
-                    <span className="text-gray-800 hover:text-red-600">
-                      Home
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about">
-                    <span className="text-gray-800 hover:text-red-600">
-                      About
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/deals">
-                    <span className="text-gray-800 hover:text-red-600">
-                     Deals
-                    </span>
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search books..."
-                className="w-96 px-4 py-2 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
-              />
-              <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="flex items-center mb-4 md:mb-0">
+              <Link href="/">
+                <span className="text-xl font-bold text-red-600">BookBank</span>
+              </Link>
+              <nav className="ml-8 hidden md:block">
+                <ul className="flex space-x-4">
+                  <li>
+                    <Link href="/">
+                      <span className="text-gray-800 hover:text-red-600">
+                        Home
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about">
+                      <span className="text-gray-800 hover:text-red-600">
+                        About
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/deals">
+                      <span className="text-gray-800 hover:text-red-600">
+                        Deals
+                      </span>
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div className="flex-1 flex justify-center mb-4 md:mb-0">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search books..."
+                  className="w-full md:w-96 px-4 py-2 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
+                />
+                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <Link href="/cart">
+                <span className="text-gray-800 hover:text-red-600 flex items-center">
+                  <FaShoppingCart className="mr-1" />
+                  Cart
+                </span>
+              </Link>
+              <Link href="/login">
+                <span className="text-gray-800 hover:text-red-600 flex items-center">
+                  <FaUser className="mr-1" />
+                  Login
+                </span>
+              </Link>
             </div>
           </div>
-          <div className="flex items-center space-x-4">
-            <Link href="/cart">
-              <span className="text-gray-800 hover:text-red-600 flex items-center">
-                <FaShoppingCart className="mr-1" />
-                Cart
-              </span>
-            </Link>
-            <Link href="/login">
-              <span className="text-gray-800 hover:text-red-600 flex items-center">
-                <FaUser className="mr-1" />
-                Login
-              </span>
-            </Link>
-          </div>
+          <nav className="md:hidden mt-4">
+            <ul className="flex flex-col space-y-2">
+              <li>
+                <Link href="/">
+                  <span className="text-gray-800 hover:text-red-600">Home</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/about">
+                  <span className="text-gray-800 hover:text-red-600">
+                    About
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/deals">
+                  <span className="text-gray-800 hover:text-red-600">
+                    Deals
+                  </span>
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
         <CategoryNav />
       </header>
