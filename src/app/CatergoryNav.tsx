@@ -32,7 +32,7 @@ const CategoryNav = () => {
           >
             <FaBars className="h-6 w-6" />
           </button>
-          <ul className="hidden md:flex justify-center space-x-8">
+          <ul className="hidden md:flex md:justify-center md:space-x-8 md:mx-auto">
             {categories.map((category) => (
               <li key={category.slug}>
                 <Link href={`/category/${category.slug}`}>
