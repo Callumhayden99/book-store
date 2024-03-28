@@ -60,7 +60,7 @@ export default function RootLayout({
                     </Link>
                   </li>
                   <li>
-                    <Link href="/about">
+                    <Link href="/About">
                       <span className="text-gray-800 hover:text-red-600 flex items-center">
                         <FaInfoCircle className="mr-1" />
                         About
@@ -102,7 +102,7 @@ export default function RootLayout({
                 </Link>
               </li>
               <li>
-                <Link href="/about">
+                <Link href="/About">
                   <span className="text-gray-800 hover:text-red-600 flex items-center">
                     <FaInfoCircle className="mr-1" />
                     About
