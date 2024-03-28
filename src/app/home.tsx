@@ -10,8 +10,8 @@ import {
   FaRegCreditCard,
 } from "react-icons/fa";
 import ScrollReveal from "scrollreveal";
-import Carousel from "./Carousel";
-import Carousel2 from "./Carousel2";
+import Carousel from "../components/Carousel";
+import Carousel2 from "../components/Carousel2";
 
 const Home = () => {
   useEffect(() => {
