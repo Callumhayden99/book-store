@@ -28,7 +28,7 @@ const Carousel = () => {
   return (
     <div className="relative">
       <div className="flex overflow-hidden">
-        {images.map((image, index) => (
+        {images.slice(currentIndex, currentIndex + 4).map((image, index) => (
           <div key={index} className="w-1/4 flex-shrink-0 p-2">
             <div className="bg-white shadow-md rounded-lg overflow-hidden">
               <img
