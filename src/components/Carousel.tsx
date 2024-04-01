@@ -11,6 +11,8 @@ const Carousel = () => {
     "/normalPeople.jpg",
     "/oxygenAdvantageBook.jpeg",
     "/warandpeaceBook.jpg",
+    "/redSparrow.jpg",
+    "/iAmPilgrim.jpg",
   ];
 
   const prevSlide = () => {
