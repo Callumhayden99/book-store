@@ -12,6 +12,7 @@ import {
   FaHome,
   FaInfoCircle,
   FaTag,
+  FaEnvelope,
 } from "react-icons/fa";
 import CategoryNav from "./CatergoryNav";
 
@@ -77,6 +78,14 @@ export default function RootLayout({
                         </span>
                       </Link>
                     </li>
+                    <li>
+                      <Link href="/contact">
+                        <span className="text-gray-800 hover:text-red-600 flex items-center">
+                          <FaEnvelope className="mr-1" />
+                          Contact
+                        </span>
+                      </Link>
+                    </li>
                   </ul>
                 </nav>
                 <Link href="/cart">
@@ -116,6 +125,14 @@ export default function RootLayout({
                     <span className="text-gray-800 hover:text-red-600 flex items-center">
                       <FaTag className="mr-1" />
                       Deals
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact">
+                    <span className="text-gray-800 hover:text-red-600 flex items-center">
+                      <FaEnvelope className="mr-1" />
+                      Contact
                     </span>
                   </Link>
                 </li>
