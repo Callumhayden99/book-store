@@ -34,7 +34,7 @@ export default function RootLayout({
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-wrap justify-between items-center">
               <div className="flex items-center mb-4 md:mb-0">
-                <Link href="/">
+                <Link href="/home">
                   <span className="text-xl font-bold text-red-600">
                     BookBank
                   </span>
