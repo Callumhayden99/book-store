@@ -1,28 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+
 import React, { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const images = [
-    "/images/book1.jpg",
-    "/images/book2.jpg",
-    "/images/book3.jpg",
-    "/images/book4.jpg",
-    "/images/book5.jpg",
-    "/images/book6.jpg",
-    "/images/book7.jpg",
-    "/images/book8.jpg",
-    "/images/book9.jpg",
-    "/images/book10.jpg",
-    "/images/book11.jpg",
-    "/images/book12.jpg",
+    "/DuneBook.jpeg",
+    "/normalPeople.jpg",
+    "/oxygenAdvantageBook.jpeg",
+    "/warandpeaceBook.jpg",
   ];
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    );
   };
 
   const nextSlide = () => {
@@ -32,7 +26,7 @@ const Carousel = () => {
   return (
     <div className="relative">
       <div className="flex overflow-hidden">
-        {images.slice(currentIndex, currentIndex + 4).map((image, index) => (
+        {images.map((image, index) => (
           <div key={index} className="w-1/4 flex-shrink-0 p-2">
             <div className="bg-white shadow-md rounded-lg overflow-hidden">
               <img
