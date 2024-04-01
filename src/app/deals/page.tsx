@@ -1,5 +1,6 @@
 "use client";
 
+import Carousel3 from "@/components/Carousel3";
 import { useEffect, useRef } from "react";
 import { FaBookOpen, FaTag, FaShoppingCart, FaGift, FaCreditCard, FaTruck } from "react-icons/fa";
 
@@ -77,6 +78,10 @@ export default function Deals() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section>
+        <Carousel3 />
       </section>
 
       <section
