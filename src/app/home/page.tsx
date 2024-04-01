@@ -61,7 +61,7 @@ const Home = () => {
       </section>
 
       <section className="section">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 mt-10 text-center">
           Featured Categories
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
