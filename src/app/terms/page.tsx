@@ -6,7 +6,7 @@ export default function TermsAndConditions() {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-4">Terms and Conditions</h1>
       <p className="mb-4">
-        Welcome to BookStore. By accessing or using our website, you agree to be
+        Welcome to BookBank. By accessing or using our website, you agree to be
         bound by the following terms and conditions. Please read them carefully.
       </p>
       <h2 className="text-2xl font-bold mb-2">1. Intellectual Property</h2>
