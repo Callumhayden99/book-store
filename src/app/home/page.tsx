@@ -3,6 +3,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   FaBook,
   FaShippingFast,
@@ -44,9 +45,11 @@ const Home = () => {
             </Link>
           </div>
           <div className="md:w-1/2">
-            <img
-              src="/images/hero.jpg"
-              alt="Hero"
+            <Image
+              src="/library.jpeg"
+              alt="library"
+              width={500}
+              height={300}
               className="w-full rounded-lg shadow-md"
             />
           </div>
