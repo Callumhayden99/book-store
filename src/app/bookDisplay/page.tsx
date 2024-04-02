@@ -96,7 +96,9 @@ export default async function BookDetails({
           <div className="md:w-2/3">
             <h1 className="text-5xl font-bold mb-6">{book.title}</h1>
             <p className="text-2xl text-gray-600 mb-8">by {book.author}</p>
-            <div className="flex items-center mb-8">
+            <p className="text-2xl text-gray-600 mb-8">Genre: {book.genre}</p>
+            <p className="text-2xl text-gray-600">ISBN: {book.isbn}</p>
+            <div className="flex items-center mb-8 mt-6">
               {[...Array(5)].map((_, index) => (
                 <FaStar
                   key={index}
@@ -110,8 +112,6 @@ export default async function BookDetails({
                 {book.rating.toFixed(1)}/5
               </span>
             </div>
-            <p className="text-2xl text-gray-600 mb-8">Genre: {book.genre}</p>
-            <p className="text-2xl text-gray-600">ISBN: {book.isbn}</p>
           </div>
         </div>
       </div>
