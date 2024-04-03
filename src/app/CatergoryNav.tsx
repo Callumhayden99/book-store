@@ -8,7 +8,7 @@ const categories = [
   { name: "Non-Fiction", slug: "non-fiction" },
   { name: "Mystery", slug: "mystery" },
   { name: "Science Fiction", slug: "science-fiction" },
-  { name: "Romance", slug: "romance" },
+  { name: "Classic", slug: "Classic" },
   { name: "Biography", slug: "biography" },
   { name: "Self-Help", slug: "self-help" },
   { name: "Business", slug: "business" },
