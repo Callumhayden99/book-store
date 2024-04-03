@@ -1,16 +1,23 @@
 "use client";
-
-import { FaShoppingCart, FaTrash, FaCreditCard, FaPaypal, FaApplePay, FaAmazonPay } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 export default function Cart() {
-  const cartItems = [
-    { id: 1, title: "Book 1", price: 19.99, quantity: 2 },
-    { id: 2, title: "Book 2", price: 24.99, quantity: 1 },
-    { id: 3, title: "Book 3", price: 14.99, quantity: 3 },
-  ];
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    const storedCartItems = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("cartItems")) || [] : [];
+    setCartItems(storedCartItems);
+  }, []);
 
   const getTotalPrice = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  const handleRemoveItem = (itemId) => {
+    const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
+    setCartItems(updatedCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   };
 
   return (
@@ -27,14 +34,16 @@ export default function Cart() {
               <div className="bg-white p-8 rounded-lg shadow-md">
                 {cartItems.map((item) => (
                   <div key={item.id} className="flex items-center mb-8">
-                    <img src={`/images/book${item.id}.jpg`} alt={item.title} className="w-24 h-32 object-cover rounded-md mr-6" />
+                    <img src={item.image} alt={item.name} className="w-24 h-32 object-cover rounded-md mr-6" />
                     <div>
-                      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                      <h3 className="text-xl font-bold mb-2">{item.name}</h3>
                       <p className="text-gray-600 mb-2">Quantity: {item.quantity}</p>
                       <p className="text-gray-800 font-bold mb-2">${item.price.toFixed(2)}</p>
-                      <button className="text-red-600 hover:text-red-800">
-                        <FaTrash className="inline-block mr-1" />
-                        Remove
+                      <button
+                        className="text-red-600 hover:text-red-800"
+                        onClick={() => handleRemoveItem(item.id)}
+                      >
+                        <FaTrash className="inline-block mr-1" /> Remove
                       </button>
                     </div>
                   </div>
@@ -59,15 +68,6 @@ export default function Cart() {
                 <button className="bg-red-600 text-white px-8 py-3 rounded-md font-bold hover:bg-red-700 transition duration-300 w-full">
                   Proceed to Checkout
                 </button>
-              </div>
-              <div className="bg-white p-8 rounded-lg shadow-md mt-8">
-                <h2 className="text-2xl font-bold mb-6">Accepted Payment Methods</h2>
-                <div className="flex justify-center space-x-8">
-                  <FaCreditCard className="text-4xl text-gray-600" />
-                  <FaPaypal className="text-4xl text-gray-600" />
-                  <FaApplePay className="text-4xl text-gray-600" />
-                  <FaAmazonPay className="text-4xl text-gray-600" />
-                </div>
               </div>
             </div>
           </div>
