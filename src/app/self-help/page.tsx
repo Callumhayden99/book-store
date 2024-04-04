@@ -1,4 +1,4 @@
-export default function Fiction() {
+export default function Self() {
 
     return(
         <>
