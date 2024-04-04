@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     try {
       const fictionBooks = await prisma.book.findMany({
         where: {
-          genre: "Science Fiction",
+          genre: "Science-Fiction",
         },
       });
 

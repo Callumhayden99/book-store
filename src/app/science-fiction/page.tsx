@@ -26,7 +26,7 @@ export default function Science() {
     const fetchBooks = async () => {
       try {
         const response = await axios.get<Book[]>(
-          "http://localhost:3000/api/science-fiction"
+          "http://localhost:3000/api/sciencefiction"
         );
         setBooks(response.data);
       } catch (error) {
