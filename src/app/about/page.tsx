@@ -55,8 +55,8 @@ export default function About() {
         ref={(el) => (sectionRefs.current[0] = el)}
         className="mb-16 bg-white border-4 border-red-600 rounded-lg py-16 opacity-0 transition-opacity duration-1000"
       >
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-6xl font-bold mb-4 text-red-600">About Us</h1>
+        <div className="max-w-4xl mx-auto px-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-red-600">About Us</h1>
           <p className="text-gray-600 text-lg">
             Welcome to BookBank, your ultimate destination for all things books!
             We are passionate about providing a wide range of books to readers
@@ -69,11 +69,11 @@ export default function About() {
         ref={(el) => (sectionRefs.current[1] = el)}
         className="mb-16 bg-red-600 rounded-lg py-16 opacity-0 transition-opacity duration-1000"
       >
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-white">What We Do</h2>
+        <div className=" max-w-4xl mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl text-center font-bold mb-8 text-white">What We Do</h2>
           <div className="flex flex-col md:flex-row items-center mb-8">
-            <FaBook className="text-5xl text-white mr-8 mb-4 md:mb-0" />
-            <p className="text-white text-lg">
+            <FaBook className="text-4xl md:text-5xl text-white mr-0 md:mr-8 mb-4 md:mb-0" />
+            <p className="text-white text-lg text-center md:text-left">
               At BookBank, we curate an extensive collection of books spanning
               various genres, from classic literature to contemporary
               bestsellers. Our goal is to make reading accessible and enjoyable
@@ -81,8 +81,8 @@ export default function About() {
             </p>
           </div>
           <div className="flex flex-col md:flex-row items-center">
-            <FaDonate className="text-5xl text-white mr-8 mb-4 md:mb-0" />
-            <p className="text-white text-lg">
+            <FaDonate className="text-4xl md:text-5xl text-white mr-0 md:mr-8 mb-4 md:mb-0" />
+            <p className="text-white text-lg text-center md:text-left">
               We believe in the power of books to educate, inspire, and
               transform lives. That's why a portion of our profits goes towards
               supporting literacy programs and donating books to underprivileged
@@ -96,8 +96,8 @@ export default function About() {
         ref={(el) => (sectionRefs.current[2] = el)}
         className="mb-16 bg-white border-4 border-red-600 rounded-lg py-16 opacity-0 transition-opacity duration-1000"
       >
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">How We Were Created</h2>
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">How We Were Created</h2>
           <p className="text-gray-600 text-lg">
             BookBank was founded in 2010 by a group of book lovers who shared a
             vision of creating an online bookstore that not only sells books but
@@ -112,8 +112,8 @@ export default function About() {
         ref={(el) => (sectionRefs.current[3] = el)}
         className="mb-16 bg-red-600 rounded-lg py-16 opacity-0 transition-opacity duration-1000"
       >
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">
             Who We Donate To
           </h2>
           <ul className="list-disc list-inside text-lg text-white">
@@ -132,12 +132,12 @@ export default function About() {
         ref={(el) => (sectionRefs.current[4] = el)}
         className="mb-16 bg-white border-4 border-red-600 rounded-lg py-16 opacity-0 transition-opacity duration-1000"
       >
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Why Choose Us</h2>
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">Why Choose Us</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-red-600 rounded-lg shadow-lg p-8 transform hover:scale-105 transition duration-300">
-              <FaHandshake className="text-5xl text-white mb-4" />
-              <h3 className="text-2xl font-bold mb-4 text-white">
+              <FaHandshake className="text-4xl md:text-5xl text-white mb-4" />
+              <h3 className="text-xl md:text-2xl font-bold mb-4 text-white">
                 Excellent Customer Service
               </h3>
               <p className="text-white text-lg">
@@ -147,8 +147,8 @@ export default function About() {
               </p>
             </div>
             <div className="bg-red-600 rounded-lg shadow-lg p-8 transform hover:scale-105 transition duration-300">
-              <FaHeart className="text-5xl text-white mb-4" />
-              <h3 className="text-2xl font-bold mb-4 text-white">
+              <FaHeart className="text-4xl md:text-5xl text-white mb-4" />
+              <h3 className="text-xl md:text-2xl font-bold mb-4 text-white">
                 Support Charitable Causes
               </h3>
               <p className="text-white text-lg">
@@ -158,8 +158,8 @@ export default function About() {
               </p>
             </div>
             <div className="bg-red-600 rounded-lg shadow-lg p-8 transform hover:scale-105 transition duration-300">
-              <FaSmile className="text-5xl text-white mb-4" />
-              <h3 className="text-2xl font-bold mb-4 text-white">
+              <FaSmile className="text-4xl md:text-5xl text-white mb-4" />
+              <h3 className="text-xl md:text-2xl font-bold mb-4 text-white">
                 Satisfaction Guaranteed
               </h3>
               <p className="text-white text-lg">
@@ -176,8 +176,8 @@ export default function About() {
         ref={(el) => (sectionRefs.current[5] = el)}
         className="mb-16 bg-red-600 rounded-lg py-16 opacity-0 transition-opacity duration-1000"
       >
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-white">Charity Work</h2>
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">Charity Work</h2>
           <p className="text-white text-lg mb-8">
             At BookBank, giving back to the community is at the core of what we
             do. We regularly organize book donation drives and partner with
@@ -187,7 +187,7 @@ export default function About() {
           </p>
           <a
             href="/contact"
-            className="bg-white text-red-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition duration-300"
+            className="bg-white text-red-600 px-6 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition duration-300"
           >
             Contact Us
           </a>
@@ -198,11 +198,11 @@ export default function About() {
         ref={(el) => (sectionRefs.current[6] = el)}
         className="bg-white border-4 border-red-600 rounded-lg py-16 opacity-0 transition-opacity duration-1000"
       >
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Who Works for Us</h2>
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">Who Works for Us</h2>
           <div className="flex flex-col md:flex-row items-center mb-8">
-            <FaUsers className="text-5xl text-red-600 mr-8 mb-4 md:mb-0" />
-            <p className="text-gray-600 text-lg">
+            <FaUsers className="text-4xl md:text-5xl text-red-600 mr-0 md:mr-8 mb-4 md:mb-0" />
+            <p className="text-gray-600 text-lg text-center md:text-left">
               Our team at BookBank is made up of passionate individuals who
               share a love for books and a commitment to making a positive
               impact. With diverse backgrounds and expertise, we work together
