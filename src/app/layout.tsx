@@ -35,7 +35,7 @@ export default function RootLayout({
   <div className="container mx-auto px-4 py-6 flex flex-wrap justify-between items-center">
     <div className="flex items-center mb-4 md:mb-0">
       <Link href="/home">
-        <span className="text-xl font-bold text-red-600">BookBank</span>
+        <span className="text-3xl font-bold text-red-600">BookBank</span>
       </Link>
     </div>
     <div className="w-full md:w-auto mb-4 md:mb-0 md:mx-auto">
