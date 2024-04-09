@@ -44,7 +44,7 @@ export default function Deals() {
     <div className="container mx-auto px-4 py-16">
       <section
         ref={(el) => (sectionRefs.current[0] = el)}
-        className="mb-16 bg-white py-16 opacity-0 transition-opacity duration-1000"
+        className="mb-16 bg-white border-4 border-red-600 rounded-lg py-16 opacity-0 transition-opacity duration-1000"
       >
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-4 text-red-600">Deals and Promotions</h1>
@@ -86,7 +86,7 @@ export default function Deals() {
 
       <section
         ref={(el) => (sectionRefs.current[2] = el)}
-        className="mb-16 bg-white py-16 opacity-0 transition-opacity duration-1000"
+        className="mb-16 bg-white border-4 border-red-600 rounded-lg py-16 opacity-0 transition-opacity duration-1000"
       >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Limited-Time Offers</h2>
@@ -122,7 +122,7 @@ export default function Deals() {
 
       <section
         ref={(el) => (sectionRefs.current[4] = el)}
-        className="bg-white py-16 opacity-0 transition-opacity duration-1000"
+        className="bg-white border-4 border-red-600 rounded-lg py-16 opacity-0 transition-opacity duration-1000"
       >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Subscribe for Exclusive Deals</h2>
