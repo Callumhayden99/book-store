@@ -18,6 +18,7 @@ model Book {
   weight      Decimal
   description String
   image       String
+  synopsis    String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }

@@ -1,5 +1,4 @@
 "use client";
-
 import { FaTrash } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
@@ -52,9 +51,7 @@ export default function Cart() {
                     />
                     <div>
                       <h3 className="text-xl font-bold mb-2">{item.name}</h3>
-                      <p className="text-gray-600 mb-2">
-                        Quantity: {item.quantity}
-                      </p>
+                      <p className="text-gray-600 mb-2">Quantity: {item.quantity}</p>
                       <p className="text-gray-800 font-bold mb-2">
                         {formatPrice(parseFloat(item.price))}
                       </p>
@@ -62,7 +59,8 @@ export default function Cart() {
                         className="text-red-600 hover:text-red-800"
                         onClick={() => handleRemoveItem(item.id)}
                       >
-                        <FaTrash className="inline-block mr-1" /> Remove
+                        <FaTrash className="inline-block mr-1" />
+                        Remove
                       </button>
                     </div>
                   </div>

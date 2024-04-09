@@ -16,6 +16,7 @@ interface Book {
   weight: number;
   description: string;
   image: string;
+  synopsis: string; 
 }
 
 export default function ALL() {
