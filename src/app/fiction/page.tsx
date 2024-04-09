@@ -17,6 +17,7 @@ interface Book {
   description: string;
   image: string;
 }
+
 export default function Fiction() {
   const [cartItems, setCartItems] = useState<Book[]>([]);
   const [books, setBooks] = useState<Book[]>([]);
@@ -57,6 +58,7 @@ export default function Fiction() {
       localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
     }
   };
+
   return (
     <>
       <div className="container mx-auto py-8">

@@ -1,8 +1,8 @@
 "use client";
-import Image from "next/image";
-import { useParams } from "next/navigation";
+
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 interface Book {
   id: number;
@@ -16,52 +16,57 @@ interface Book {
   image: string;
 }
 
-export default function BookDetails() {
-  const { id } = useParams();
+export default function BookDisplay() {
+  const router = useRouter();
+  const { bookId } = router.query;
   const [book, setBook] = useState<Book | null>(null);
 
   useEffect(() => {
     const fetchBook = async () => {
-      try {
-        const response = await axios.get<Book>(`http://localhost:3000/api/books/${id}`);
+      console.log("Fetching book details...");
+      try {const response = await axios.get<Book>(`http://localhost:3000/${bookId}`);
         setBook(response.data);
+        console.log("Book details fetched:", response.data);
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching book details:", error);
       }
     };
 
-    fetchBook();
-  }, [id]);
+    if (router.isReady && bookId) {
+      console.log("Router is ready and bookId is available:", bookId);
+      fetchBook();
+    }
+  }, [router.isReady, bookId]);
 
   if (!book) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="flex justify-center">
-        <div className="flex flex-col md:flex-row max-w-6xl">
-          <div className="md:w-1/3 mb-12 md:mb-0 md:mr-16">
-            <Image
-              src={book.image}
-              alt={book.name}
-              width={500}
-              height={750}
-              className="rounded-lg shadow-lg"
-            />
+    <div className="container mx-auto py-8">
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h1 className="text-4xl font-bold mb-4 text-gray-800">{book.name}</h1>
+        <div className="flex flex-col md:flex-row">
+          <div className="md:w-1/2">
+            <img src={book.image} alt={book.name} className="w-full mb-4" />
           </div>
-          <div className="md:w-2/3">
-            <h1 className="text-5xl font-bold mb-6">{book.name}</h1>
-            <p className="text-2xl text-gray-600 mb-8">by {book.author}</p>
-            <p className="text-2xl text-gray-600 mb-8">Genre: {book.genre}</p>
-            <p className="text-2xl text-gray-600 mb-4">Price: ${book.price}</p>
-            <p className="text-2xl text-gray-600 mb-4">
-              Number of Pages: {book.numPages}
+          <div className="md:w-1/2 md:pl-6">
+            <p className="text-gray-600 mb-2">
+              <strong>Author:</strong> {book.author}
             </p>
-            <p className="text-2xl text-gray-600 mb-4">
-              Weight: {book.weight} lbs
+            <p className="text-gray-600 mb-2">
+              <strong>Genre:</strong> {book.genre}
             </p>
-            <p className="text-xl text-gray-700 mb-8">{book.description}</p>
+            <p className="text-gray-600 mb-2">
+              <strong>Price:</strong> ${book.price}
+            </p>
+            <p className="text-gray-600 mb-2">
+              <strong>Number of Pages:</strong> {book.numPages}
+            </p>
+            <p className="text-gray-600 mb-2">
+              <strong>Weight:</strong> {book.weight} lbs
+            </p>
+            <p className="text-gray-600">{book.description}</p>
           </div>
         </div>
       </div>
