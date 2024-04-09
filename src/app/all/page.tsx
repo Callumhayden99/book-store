@@ -32,7 +32,6 @@ export default function ALL() {
         console.error(error);
       }
     };
-
     fetchBooks();
 
     const storedCartItems =
@@ -69,15 +68,15 @@ export default function ALL() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {books.map((book) => (
           <div key={book.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-            <img
-              src={book.image}
-              alt={book.name}
-              className="w-full h-48 object-cover"
-            />
+            <div className="h-64 overflow-hidden">
+              <img
+                src={book.image}
+                alt={book.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
             <div className="p-4">
-              <h2 className="text-xl font-bold mb-2 text-gray-800">
-                {book.name}
-              </h2>
+              <h2 className="text-xl font-bold mb-2 text-gray-800">{book.name}</h2>
               <p className="text-gray-600 mb-2">
                 <strong>Author:</strong> {book.author}
               </p>
