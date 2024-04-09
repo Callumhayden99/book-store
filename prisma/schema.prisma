@@ -11,13 +11,13 @@ datasource db {
 model Book {
   id          Int      @id @default(autoincrement())
   name        String
-  genre       String?
-  price       Float?
-  author      String?
-  numPages    Int?
-  weight      Float?
-  description String?
-  image       String?
+  genre       String
+  price       Decimal
+  author      String
+  numPages    Int
+  weight      Decimal
+  description String
+  image       String
   createdAt   DateTime @default(now())
-  updatedAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
