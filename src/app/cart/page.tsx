@@ -1,17 +1,28 @@
 "use client";
+
 import { FaTrash } from "react-icons/fa";
 import { useState, useEffect } from "react";
+
+const formatPrice = (price) => {
+  return typeof price === "number" ? `$${price.toFixed(2)}` : "$0.00";
+};
 
 export default function Cart() {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    const storedCartItems = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("cartItems")) || [] : [];
+    const storedCartItems =
+      typeof window !== "undefined"
+        ? JSON.parse(localStorage.getItem("cartItems")) || []
+        : [];
     setCartItems(storedCartItems);
   }, []);
 
   const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cartItems.reduce(
+      (total, item) => total + parseFloat(item.price) * item.quantity,
+      0
+    );
   };
 
   const handleRemoveItem = (itemId) => {
@@ -34,11 +45,19 @@ export default function Cart() {
               <div className="bg-white p-8 rounded-lg shadow-md">
                 {cartItems.map((item) => (
                   <div key={item.id} className="flex items-center mb-8">
-                    <img src={item.image} alt={item.name} className="w-24 h-32 object-cover rounded-md mr-6" />
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-24 h-32 object-cover rounded-md mr-6"
+                    />
                     <div>
                       <h3 className="text-xl font-bold mb-2">{item.name}</h3>
-                      <p className="text-gray-600 mb-2">Quantity: {item.quantity}</p>
-                      <p className="text-gray-800 font-bold mb-2">${item.price.toFixed(2)}</p>
+                      <p className="text-gray-600 mb-2">
+                        Quantity: {item.quantity}
+                      </p>
+                      <p className="text-gray-800 font-bold mb-2">
+                        {formatPrice(parseFloat(item.price))}
+                      </p>
                       <button
                         className="text-red-600 hover:text-red-800"
                         onClick={() => handleRemoveItem(item.id)}
@@ -55,7 +74,9 @@ export default function Cart() {
                 <h2 className="text-2xl font-bold mb-6">Order Summary</h2>
                 <div className="flex justify-between mb-4">
                   <span className="text-gray-600">Subtotal:</span>
-                  <span className="text-gray-800 font-bold">${getTotalPrice().toFixed(2)}</span>
+                  <span className="text-gray-800 font-bold">
+                    {formatPrice(getTotalPrice())}
+                  </span>
                 </div>
                 <div className="flex justify-between mb-4">
                   <span className="text-gray-600">Shipping:</span>
@@ -63,7 +84,9 @@ export default function Cart() {
                 </div>
                 <div className="flex justify-between mb-8">
                   <span className="text-gray-600">Total:</span>
-                  <span className="text-red-600 font-bold text-2xl">${getTotalPrice().toFixed(2)}</span>
+                  <span className="text-red-600 font-bold text-2xl">
+                    {formatPrice(getTotalPrice())}
+                  </span>
                 </div>
                 <button className="bg-red-600 text-white px-8 py-3 rounded-md font-bold hover:bg-red-700 transition duration-300 w-full">
                   Proceed to Checkout
