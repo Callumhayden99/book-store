@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -10,23 +10,22 @@ import {
   FaInfoCircle,
   FaTag,
   FaEnvelope,
+  FaSignOutAlt,
 } from "react-icons/fa";
 
 export default function Header() {
-  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const adminEmail = localStorage.getItem("adminEmail");
-    const adminRole = localStorage.getItem("adminRole");
-    if (adminEmail && adminRole === "ADMIN") {
-      setIsAdminLoggedIn(true);
+    const loggedIn = localStorage.getItem("isLoggedIn");
+    if (loggedIn === "true") {
+      setIsLoggedIn(true);
     }
   }, []);
 
   const handleSignOut = () => {
-    localStorage.removeItem("adminEmail");
-    localStorage.removeItem("adminRole");
-    setIsAdminLoggedIn(false);
+    localStorage.removeItem("isLoggedIn");
+    setIsLoggedIn(false);
     window.location.href = "/login";
   };
 
@@ -91,7 +90,7 @@ export default function Header() {
                   </span>
                 </Link>
               </li>
-              {!isAdminLoggedIn && (
+              {!isLoggedIn && (
                 <li>
                   <Link href="/login">
                     <span className="text-gray-800 hover:text-red-600 flex items-center">
@@ -101,12 +100,13 @@ export default function Header() {
                   </Link>
                 </li>
               )}
-              {isAdminLoggedIn && (
+              {isLoggedIn && (
                 <li>
                   <button
                     onClick={handleSignOut}
-                    className="text-gray-800 hover:text-red-600"
+                    className="text-gray-800 hover:text-red-600 flex items-center"
                   >
+                    <FaSignOutAlt className="mr-1" />
                     Sign Out
                   </button>
                 </li>
@@ -157,7 +157,7 @@ export default function Header() {
               </span>
             </Link>
           </li>
-          {!isAdminLoggedIn && (
+          {!isLoggedIn && (
             <li>
               <Link href="/login">
                 <span className="text-gray-800 hover:text-red-600 flex items-center">
@@ -167,12 +167,13 @@ export default function Header() {
               </Link>
             </li>
           )}
-          {isAdminLoggedIn && (
+          {isLoggedIn && (
             <li>
               <button
                 onClick={handleSignOut}
-                className="text-gray-800 hover:text-red-600"
+                className="text-gray-800 hover:text-red-600 flex items-center"
               >
+                <FaSignOutAlt className="mr-1" />
                 Sign Out
               </button>
             </li>
