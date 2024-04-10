@@ -26,17 +26,13 @@ export default function Contact() {
             Fill out the form below or contact us directly using the information provided.
           </p>
           <div className="flex items-center mb-4 animate-fade-in">
-            <FaEnvelope className="text-2xl text-red-600 mr-4" />
-            <span className="text-gray-600">info@bookstore.com</span>
-          </div>
-          <div className="flex items-center mb-4 animate-fade-in">
             <FaPhone className="text-2xl text-red-600 mr-4" />
             <span className="text-gray-600">+1 123-456-7890</span>
           </div>
           <div className="flex items-center animate-fade-in">
             <FaMapMarkerAlt className="text-2xl text-red-600 mr-4" />
             <span className="text-gray-600">
-              123 Book Street, City, Country
+              123 Book Street, Sydney, Australia
             </span>
           </div>
         </div>

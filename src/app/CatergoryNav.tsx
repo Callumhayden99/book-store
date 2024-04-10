@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaBook, FaFeatherAlt, FaSearch, FaRobot, FaLandmark, FaUserTie, FaHeart, FaBriefcase } from "react-icons/fa";
 
 export default function CategoryNav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,47 +18,65 @@ export default function CategoryNav() {
             <ul className="flex flex-wrap justify-center space-x-4">
               <li>
                 <Link href="/all">
-                  <span className="text-gray-800 hover:text-red-600">All</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaBook className="mr-1" /> All
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/fiction">
-                  <span className="text-gray-800 hover:text-red-600">Fiction</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaFeatherAlt className="mr-1" /> Fiction
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/non-fiction">
-                  <span className="text-gray-800 hover:text-red-600">Non-fiction</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaSearch className="mr-1" /> Non-fiction
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/mystery">
-                  <span className="text-gray-800 hover:text-red-600">Mystery</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaSearch className="mr-1" /> Mystery
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/science-fiction">
-                  <span className="text-gray-800 hover:text-red-600">Science-Fiction</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaRobot className="mr-1" /> Science-Fiction
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/classic">
-                  <span className="text-gray-800 hover:text-red-600">Classic</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaLandmark className="mr-1" /> Classic
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/biography">
-                  <span className="text-gray-800 hover:text-red-600">Biography</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaUserTie className="mr-1" /> Biography
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/self-help">
-                  <span className="text-gray-800 hover:text-red-600">Self-Help</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaHeart className="mr-1" /> Self-Help
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/business">
-                  <span className="text-gray-800 hover:text-red-600">Business</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaBriefcase className="mr-1" /> Business
+                  </span>
                 </Link>
               </li>
             </ul>
@@ -77,47 +95,65 @@ export default function CategoryNav() {
             <ul className="flex flex-col items-center space-y-2">
               <li>
                 <Link href="/all">
-                  <span className="text-gray-800 hover:text-red-600">All</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaBook className="mr-1" /> All
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/fiction">
-                  <span className="text-gray-800 hover:text-red-600">Fiction</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaFeatherAlt className="mr-1" /> Fiction
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/non-fiction">
-                  <span className="text-gray-800 hover:text-red-600">Non-fiction</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaSearch className="mr-1" /> Non-fiction
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/mystery">
-                  <span className="text-gray-800 hover:text-red-600">Mystery</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaSearch className="mr-1" /> Mystery
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/science-fiction">
-                  <span className="text-gray-800 hover:text-red-600">Science-Fiction</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaRobot className="mr-1" /> Science-Fiction
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/classic">
-                  <span className="text-gray-800 hover:text-red-600">Classic</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaLandmark className="mr-1" /> Classic
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/biography">
-                  <span className="text-gray-800 hover:text-red-600">Biography</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaUserTie className="mr-1" /> Biography
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/self-help">
-                  <span className="text-gray-800 hover:text-red-600">Self-Help</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaHeart className="mr-1" /> Self-Help
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/business">
-                  <span className="text-gray-800 hover:text-red-600">Business</span>
+                  <span className="flex items-center text-gray-800 hover:text-red-600">
+                    <FaBriefcase className="mr-1" /> Business
+                  </span>
                 </Link>
               </li>
             </ul>
