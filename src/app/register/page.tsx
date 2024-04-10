@@ -1,43 +1,41 @@
 "use client";
-
 import { useState } from "react";
-import { FaEnvelope, FaLock } from "react-icons/fa";
+import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 
-export default function Login() {
+export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/login", {
+      const response = await fetch("/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
       });
-  
+
       if (response.ok) {
-        const data = await response.json();
-        // Store the admin's information in local storage or session storage
-        localStorage.setItem("adminEmail", data.email);
-        localStorage.setItem("adminRole", data.role);
-        // Redirect to the home page
-        window.location.href = "/home";
+        // Registration successful, redirect to login page
+        window.location.href = "/login";
       } else {
-        // Handle login error
-        console.log("Login failed");
+        const data = await response.json();
+        setErrorMessage(data.message);
       }
     } catch (error) {
       console.error("Error:", error);
+      setErrorMessage("An error occurred. Please try again.");
     }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-3xl font-bold mb-6 text-center text-red-600">Login</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center text-red-600">Register</h1>
+        {errorMessage && <p className="text-red-600 mb-4">{errorMessage}</p>}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="email" className="block mb-2 font-bold text-gray-700">
@@ -77,18 +75,12 @@ export default function Login() {
             type="submit"
             className="w-full bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition duration-300"
           >
-            Login
+            Register
           </button>
         </form>
         <div className="mt-4 text-center">
-          <a href="/forgot-password" className="text-red-600 hover:underline">
-            Forgot Password?
-          </a>
-        </div>
-        <div className="mt-4 text-center">
-          Don't have an account?{" "}
-          <a href="/register" className="text-red-600 hover:underline">
-            Register
+          <a href="/login" className="text-red-600 hover:underline">
+            Already have an account? Login
           </a>
         </div>
       </div>
