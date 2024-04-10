@@ -9,20 +9,31 @@ export default async function handler(req, res) {
     const { email, password } = req.body;
 
     try {
-      const user = await prisma.user.findUnique({ where: { email } });
+      // Find the user by email
+      const userByEmail = await prisma.user.findFirst({ where: { email } });
 
-      if (user) {
-        const passwordMatch = await bcrypt.compare(password, user.password);
+      if (userByEmail) {
+        // Find the user by id
+        const user = await prisma.user.findUnique({
+          where: {
+            id: userByEmail.id,
+          },
+        });
 
-        if (passwordMatch) {
-          const token = jwt.sign(
-            { userId: user.id, email: user.email, role: user.role },
-            process.env.JWT_SECRET,
-            { expiresIn: "1h" }
-          );
-          res.status(200).json({ token });
+        if (user) {
+          const passwordMatch = await bcrypt.compare(password, user.password);
+          if (passwordMatch) {
+            const token = jwt.sign(
+              { userId: user.id, email: user.email, role: user.role },
+              process.env.JWT_SECRET,
+              { expiresIn: "1h" }
+            );
+            res.status(200).json({ token });
+          } else {
+            res.status(401).json({ message: "Invalid password" });
+          }
         } else {
-          res.status(401).json({ message: "Invalid password" });
+          res.status(401).json({ message: "User not found" });
         }
       } else {
         res.status(401).json({ message: "User not found" });

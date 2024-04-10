@@ -1,7 +1,7 @@
-import { NextApiRequest, NextApiResponse } from "next";
+
 import { verifyToken } from "../../middleware/auth";
 
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
+const handler = (req, res) => {
   if (req.method === "GET") {
     if (req.user.role === "ADMIN") {
       res.status(200).json({ message: "Welcome to the admin section" });
