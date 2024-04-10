@@ -1,13 +1,13 @@
 "use client";
-
 import { useState } from "react";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch("/api/login", {
@@ -49,10 +49,7 @@ export default function Login() {
         )}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block mb-2 font-bold text-gray-700"
-            >
+            <label htmlFor="email" className="block mb-2 font-bold text-gray-700">
               Email
             </label>
             <div className="relative">
@@ -69,10 +66,7 @@ export default function Login() {
             </div>
           </div>
           <div className="mb-6">
-            <label
-              htmlFor="password"
-              className="block mb-2 font-bold text-gray-700"
-            >
+            <label htmlFor="password" className="block mb-2 font-bold text-gray-700">
               Password
             </label>
             <div className="relative">
