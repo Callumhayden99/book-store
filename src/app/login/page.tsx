@@ -7,10 +7,31 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    // Perform login logic here, e.g., send email and password to backend API
-    console.log("Login submitted:", email, password);
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        // Store the admin's information in local storage or session storage
+        localStorage.setItem("adminEmail", data.email);
+        localStorage.setItem("adminRole", data.role);
+        // Redirect to the home page
+        window.location.href = "/home";
+      } else {
+        // Handle login error
+        console.log("Login failed");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -62,12 +83,6 @@ export default function Login() {
         <div className="mt-4 text-center">
           <a href="/forgot-password" className="text-red-600 hover:underline">
             Forgot Password?
-          </a>
-        </div>
-        <div className="mt-4 text-center">
-          Don't have an account?{" "}
-          <a href="/register" className="text-red-600 hover:underline">
-            Register
           </a>
         </div>
       </div>

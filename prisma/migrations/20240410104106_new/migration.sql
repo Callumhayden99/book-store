@@ -1,3 +1,6 @@
+-- CreateEnum
+CREATE TYPE "Role" AS ENUM ('ADMIN');
+
 -- CreateTable
 CREATE TABLE "Book" (
     "id" SERIAL NOT NULL,
@@ -14,4 +17,16 @@ CREATE TABLE "Book" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Book_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "User" (
+    "id" SERIAL NOT NULL,
+    "email" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
+    "role" "Role" NOT NULL DEFAULT 'ADMIN',
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
