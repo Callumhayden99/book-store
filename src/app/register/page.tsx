@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 
@@ -9,6 +10,7 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const response = await fetch("/api/register", {
         method: "POST",
@@ -34,11 +36,16 @@ export default function Register() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-3xl font-bold mb-6 text-center text-red-600">Register</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center text-red-600">
+          Register
+        </h1>
         {errorMessage && <p className="text-red-600 mb-4">{errorMessage}</p>}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="email" className="block mb-2 font-bold text-gray-700">
+            <label
+              htmlFor="email"
+              className="block mb-2 font-bold text-gray-700"
+            >
               Email
             </label>
             <div className="relative">
@@ -55,7 +62,10 @@ export default function Register() {
             </div>
           </div>
           <div className="mb-6">
-            <label htmlFor="password" className="block mb-2 font-bold text-gray-700">
+            <label
+              htmlFor="password"
+              className="block mb-2 font-bold text-gray-700"
+            >
               Password
             </label>
             <div className="relative">
