@@ -179,7 +179,6 @@ export default function Header() {
           )}
         </ul>
       </nav>
-      {isAdminLoggedIn && <AdminWelcome />}
     </header>
   );
 }
