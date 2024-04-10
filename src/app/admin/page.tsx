@@ -11,6 +11,7 @@ export default function AdminPage() {
       const token = localStorage.getItem("token");
 
       if (!token) {
+        // Redirect to the login page if the user doesn't have a valid token
         router.push("/login");
         return;
       }
@@ -26,6 +27,7 @@ export default function AdminPage() {
           const data = await response.json();
           setMessage(data.message);
         } else {
+          // Redirect to the login page if the token is invalid
           router.push("/login");
         }
       } catch (error) {
@@ -42,5 +44,12 @@ export default function AdminPage() {
     return <div>Loading...</div>;
   }
 
-  return <div>{message}</div>;
+  return (
+    <div>
+      <div className="bg-green-500 text-white p-4 mb-4">
+        <h2 className="text-2xl font-bold">You have successfully logged in!</h2>
+      </div>
+      <div>{message}</div>
+    </div>
+  );
 }

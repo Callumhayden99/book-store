@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 
@@ -9,6 +10,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const response = await fetch("/api/login", {
         method: "POST",
@@ -20,11 +22,11 @@ export default function Login() {
 
       if (response.ok) {
         const data = await response.json();
-        // Store the admin's information in local storage or session storage
-        localStorage.setItem("adminEmail", data.email);
-        localStorage.setItem("adminRole", data.role);
-        // Redirect to the home page
-        window.location.href = "/home";
+        // Store the user's token in localStorage
+        localStorage.setItem("token", data.token);
+
+        // Redirect to the AdminPage
+        window.location.href = "/admin";
       } else {
         // Handle login error
         const errorData = await response.json();
@@ -49,7 +51,10 @@ export default function Login() {
         )}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="email" className="block mb-2 font-bold text-gray-700">
+            <label
+              htmlFor="email"
+              className="block mb-2 font-bold text-gray-700"
+            >
               Email
             </label>
             <div className="relative">
@@ -66,7 +71,10 @@ export default function Login() {
             </div>
           </div>
           <div className="mb-6">
-            <label htmlFor="password" className="block mb-2 font-bold text-gray-700">
+            <label
+              htmlFor="password"
+              className="block mb-2 font-bold text-gray-700"
+            >
               Password
             </label>
             <div className="relative">
