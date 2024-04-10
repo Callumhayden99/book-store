@@ -1,3 +1,4 @@
+// /api/login.js
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -22,12 +23,14 @@ export default async function handler(req, res) {
 
         if (user) {
           const passwordMatch = await bcrypt.compare(password, user.password);
+
           if (passwordMatch) {
             const token = jwt.sign(
               { userId: user.id, email: user.email, role: user.role },
-              process.env.JWT_SECRET,
+              process.env.JWT_SECRET, // Access the JWT secret from the `next.config.mjs` file
               { expiresIn: "1h" }
             );
+
             res.status(200).json({ token });
           } else {
             res.status(401).json({ message: "Invalid password" });
