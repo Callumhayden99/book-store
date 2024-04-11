@@ -28,7 +28,7 @@ export default async function handler(req, res) {
             const token = jwt.sign(
               { userId: user.id, email: user.email, role: user.role },
               process.env.JWT_SECRET, // Access the JWT secret from the `next.config.mjs` file
-              { expiresIn: "1h" }
+              { expiresIn: "1y" }
             );
 
             res.status(200).json({ token });
