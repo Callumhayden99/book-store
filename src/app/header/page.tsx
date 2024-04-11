@@ -15,12 +15,18 @@ import {
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn");
     if (loggedIn === "true") {
       setIsLoggedIn(true);
     }
+
+    const storedCartItems = typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("cartItems")) || []
+      : [];
+    setCartCount(storedCartItems.length);
   }, []);
 
   const handleSignOut = () => {
@@ -86,7 +92,7 @@ export default function Header() {
                 <Link href="/cart">
                   <span className="text-gray-800 hover:text-red-600 flex items-center">
                     <FaShoppingCart className="mr-1" />
-                    Cart
+                    Cart ({cartCount})
                   </span>
                 </Link>
               </li>
@@ -153,7 +159,7 @@ export default function Header() {
             <Link href="/cart">
               <span className="text-gray-800 hover:text-red-600 flex items-center">
                 <FaShoppingCart className="mr-1" />
-                Cart
+                Cart ({cartCount})
               </span>
             </Link>
           </li>
