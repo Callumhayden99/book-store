@@ -23,10 +23,24 @@ export default function Header() {
       setIsLoggedIn(true);
     }
 
-    const storedCartItems = typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem("cartItems")) || []
-      : [];
+    const storedCartItems =
+      typeof window !== "undefined"
+        ? JSON.parse(localStorage.getItem("cartItems")) || []
+        : [];
     setCartCount(storedCartItems.length);
+  }, []);
+
+  useEffect(() => {
+    const handleCartUpdate = (event) => {
+      const updatedCartItems = event.detail.cartItems;
+      setCartCount(updatedCartItems.length);
+    };
+  
+    window.addEventListener("cartUpdate", handleCartUpdate);
+  
+    return () => {
+      window.removeEventListener("cartUpdate", handleCartUpdate);
+    };
   }, []);
 
   const handleSignOut = () => {

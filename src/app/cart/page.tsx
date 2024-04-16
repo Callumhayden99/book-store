@@ -6,6 +6,23 @@ const formatPrice = (price) => {
   return typeof price === "number" ? `$${price.toFixed(2)}` : "$0.00";
 };
 
+const dispatchCartUpdateEvent = (cartItems) => {
+  const event = new CustomEvent("cartUpdate", {
+    detail: { cartItems },
+  });
+  window.dispatchEvent(event);
+};
+
+export const handleAddToCart = (newItem) => {
+  const storedCartItems =
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("cartItems")) || []
+      : [];
+  const updatedCartItems = [...storedCartItems, newItem];
+  localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+  dispatchCartUpdateEvent(updatedCartItems); // Dispatch the cartUpdate event
+};
+
 export default function Cart() {
   const [cartItems, setCartItems] = useState([]);
 
@@ -28,6 +45,7 @@ export default function Cart() {
     const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
     setCartItems(updatedCartItems);
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+    dispatchCartUpdateEvent(updatedCartItems);
   };
 
   return (
@@ -51,7 +69,9 @@ export default function Cart() {
                     />
                     <div>
                       <h3 className="text-xl font-bold mb-2">{item.name}</h3>
-                      <p className="text-gray-600 mb-2">Quantity: {item.quantity}</p>
+                      <p className="text-gray-600 mb-2">
+                        Quantity: {item.quantity}
+                      </p>
                       <p className="text-gray-800 font-bold mb-2">
                         {formatPrice(parseFloat(item.price))}
                       </p>
