@@ -57,7 +57,7 @@ export default function About() {
       >
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 text-red-600">About Us</h1>
-          <p className="text-gray-700 text-lg">
+          <p className="text-gray-600 text-lg">
             Welcome to BookBank, your ultimate destination for all things books!
             We are passionate about providing a wide range of books to readers
             of all ages and interests.
