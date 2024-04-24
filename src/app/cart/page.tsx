@@ -45,7 +45,7 @@ export default function Cart() {
     const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
     setCartItems(updatedCartItems);
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-    dispatchCartUpdateEvent(updatedCartItems);
+    dispatchCartUpdateEvent(updatedCartItems); // Dispatch the cartUpdate event
   };
 
   return (

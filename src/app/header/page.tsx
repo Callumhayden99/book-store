@@ -35,9 +35,9 @@ export default function Header() {
       const updatedCartItems = event.detail.cartItems;
       setCartCount(updatedCartItems.length);
     };
-  
+
     window.addEventListener("cartUpdate", handleCartUpdate);
-  
+
     return () => {
       window.removeEventListener("cartUpdate", handleCartUpdate);
     };
@@ -106,7 +106,7 @@ export default function Header() {
                 <Link href="/cart">
                   <span className="text-gray-800 hover:text-red-600 flex items-center">
                     <FaShoppingCart className="mr-1" />
-                    Cart ({cartCount})
+                    Cart (<span className="cart-count">{cartCount}</span>)
                   </span>
                 </Link>
               </li>
@@ -173,7 +173,7 @@ export default function Header() {
             <Link href="/cart">
               <span className="text-gray-800 hover:text-red-600 flex items-center">
                 <FaShoppingCart className="mr-1" />
-                Cart ({cartCount})
+                Cart (<span className="cart-count">{cartCount}</span>)
               </span>
             </Link>
           </li>

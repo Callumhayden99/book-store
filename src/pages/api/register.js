@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import { PrismaClient } from "@prisma/client";
+import jwt from "jsonwebtoken";
 
 const prisma = new PrismaClient();
 
@@ -36,4 +37,6 @@ export default async function handler(req, res) {
   } else {
     res.status(405).json({ message: "Method not allowed" });
   }
+
+  
 }
