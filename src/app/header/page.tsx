@@ -14,8 +14,8 @@ import {
 } from "react-icons/fa";
 
 export default function Header() {
-
   const [cartCount, setCartCount] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn");
@@ -43,6 +43,12 @@ export default function Header() {
     };
   }, []);
 
+  const handleSignOut = () => {
+    localStorage.removeItem("isLoggedIn");
+    setIsLoggedIn(false);
+    // Redirect to the login page
+    window.location.href = "/login";
+  };
 
   return (
     <header className="bg-white shadow-md">
@@ -105,7 +111,27 @@ export default function Header() {
                   </span>
                 </Link>
               </li>
-              
+              {isLoggedIn ? (
+                <>
+                  <li>
+                    <Link href="/admin">
+                      <span className="text-gray-800 hover:text-red-600 flex items-center">
+                        <FaUser className="mr-1" />
+                        Admin
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <button
+                      onClick={handleSignOut}
+                      className="text-gray-800 hover:text-red-600 flex items-center"
+                    >
+                      <FaSignOutAlt className="mr-1" />
+                      Sign Out
+                    </button>
+                  </li>
+                </>
+              ) : (
                 <li>
                   <Link href="/login">
                     <span className="text-gray-800 hover:text-red-600 flex items-center">
@@ -114,17 +140,7 @@ export default function Header() {
                     </span>
                   </Link>
                 </li>
-            
-                <li>
-                  <button
-                    
-                    className="text-gray-800 hover:text-red-600 flex items-center"
-                  >
-                    <FaSignOutAlt className="mr-1" />
-                    Sign Out
-                  </button>
-                </li>
-             
+              )}
             </ul>
           </nav>
         </div>
@@ -171,7 +187,27 @@ export default function Header() {
               </span>
             </Link>
           </li>
-          
+          {isLoggedIn ? (
+            <>
+              <li>
+                <Link href="/admin">
+                  <span className="text-gray-800 hover:text-red-600 flex items-center">
+                    <FaUser className="mr-1" />
+                    Admin
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <button
+                  onClick={handleSignOut}
+                  className="text-gray-800 hover:text-red-600 flex items-center"
+                >
+                  <FaSignOutAlt className="mr-1" />
+                  Sign Out
+                </button>
+              </li>
+            </>
+          ) : (
             <li>
               <Link href="/login">
                 <span className="text-gray-800 hover:text-red-600 flex items-center">
@@ -180,17 +216,7 @@ export default function Header() {
                 </span>
               </Link>
             </li>
-         
-         
-            <li>
-              <button
-                className="text-gray-800 hover:text-red-600 flex items-center"
-              >
-                <FaSignOutAlt className="mr-1" />
-                Sign Out
-              </button>
-            </li>
-        
+          )}
         </ul>
       </nav>
     </header>
