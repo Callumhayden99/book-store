@@ -14,7 +14,7 @@ import {
 } from "react-icons/fa";
 
 export default function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
@@ -43,11 +43,6 @@ export default function Header() {
     };
   }, []);
 
-  const handleSignOut = () => {
-    localStorage.removeItem("isLoggedIn");
-    setIsLoggedIn(false);
-    window.location.href = "/login";
-  };
 
   return (
     <header className="bg-white shadow-md">
@@ -110,7 +105,7 @@ export default function Header() {
                   </span>
                 </Link>
               </li>
-              {!isLoggedIn && (
+              
                 <li>
                   <Link href="/login">
                     <span className="text-gray-800 hover:text-red-600 flex items-center">
@@ -119,18 +114,17 @@ export default function Header() {
                     </span>
                   </Link>
                 </li>
-              )}
-              {isLoggedIn && (
+            
                 <li>
                   <button
-                    onClick={handleSignOut}
+                    
                     className="text-gray-800 hover:text-red-600 flex items-center"
                   >
                     <FaSignOutAlt className="mr-1" />
                     Sign Out
                   </button>
                 </li>
-              )}
+             
             </ul>
           </nav>
         </div>
@@ -177,7 +171,7 @@ export default function Header() {
               </span>
             </Link>
           </li>
-          {!isLoggedIn && (
+          
             <li>
               <Link href="/login">
                 <span className="text-gray-800 hover:text-red-600 flex items-center">
@@ -186,18 +180,17 @@ export default function Header() {
                 </span>
               </Link>
             </li>
-          )}
-          {isLoggedIn && (
+         
+         
             <li>
               <button
-                onClick={handleSignOut}
                 className="text-gray-800 hover:text-red-600 flex items-center"
               >
                 <FaSignOutAlt className="mr-1" />
                 Sign Out
               </button>
             </li>
-          )}
+        
         </ul>
       </nav>
     </header>

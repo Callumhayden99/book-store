@@ -1,48 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+
 
 export default function AdminPage() {
-  const [loading, setLoading] = useState(true);
-  const [message, setMessage] = useState("");
-  const router = useRouter();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        // Redirect to the login page if the user doesn't have a valid token
-        router.push("/login");
-        return;
-      }
-      try {
-        const response = await fetch("/api/admin", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        if (response.ok) {
-          const data = await response.json();
-          setMessage(data.message);
-        } else {
-          // Redirect to the login page if the token is invalid
-          router.push("/login");
-        }
-      } catch (error) {
-        console.error("Error:", error);
-      }
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="text-2xl text-red-600 font-bold">Loading...</div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
@@ -57,7 +17,7 @@ export default function AdminPage() {
             <h2 className="text-2xl font-bold text-red-600 mb-4">
               Welcome, Admin!
             </h2>
-            <p className="text-gray-800">{message}</p>
+            <p className="text-gray-800"></p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-6">
             <h2 className="text-2xl font-bold text-red-600 mb-4">
