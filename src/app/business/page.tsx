@@ -46,17 +46,21 @@ export default function Business() {
 
   const handleAddToCart = (book: Book) => {
     const existingItem = cartItems.find((item) => item.id === book.id);
+    let updatedCartItems;
     if (existingItem) {
-      const updatedCartItems = cartItems.map((item) =>
+      updatedCartItems = cartItems.map((item) =>
         item.id === book.id ? { ...item, quantity: item.quantity + 1 } : item
       );
-      setCartItems(updatedCartItems);
-      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
     } else {
-      const updatedCartItems = [...cartItems, { ...book, quantity: 1 }];
-      setCartItems(updatedCartItems);
-      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+      updatedCartItems = [...cartItems, { ...book, quantity: 1 }];
     }
+    setCartItems(updatedCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+
+    const event = new CustomEvent("cartUpdate", {
+      detail: { cartItems: updatedCartItems },
+    });
+    window.dispatchEvent(event);
   };
 
   return (
